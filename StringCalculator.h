@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-const char* delimiters = ",\n"; // Delimiters: commas and new lines
+const char* Delimiters = ",\n"; // Delimiters: commas and new lines
+const char* Default_Delimeters = ";,\n";
 int sum = 0;
 #define THOUSAND 1000
 #define ZERO 0
@@ -48,7 +49,7 @@ int CheckIfNegative(char* String)
 int add(const char* InputStringNumber) {
     int sum = ZERO;
     char* input_copy = strdup(InputStringNumber); // Make a modifiable 
-    char* token = strtok(input_copy, delimiters);
+    char* token = strtok(input_copy, Delimiters);
         IsStringEmpty(InputStringNumber);
         CheckIfNegative(input_copy);
         // Iterate through all tokens and sum the numbers
