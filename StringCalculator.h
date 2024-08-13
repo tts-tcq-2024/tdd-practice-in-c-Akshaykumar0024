@@ -30,7 +30,7 @@ int NumberIsGreaterThousand(int Number)
     }
 }
 
-int CheckIfNegative(const char* String)
+int CheckIfNegative(char* String)
 {
    const char char_Var = '-';
    char *ret_var;
