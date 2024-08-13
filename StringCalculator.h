@@ -43,7 +43,7 @@ int CheckIfNegative(char* String)
     }
 
 }
-char* DelimeterFinal(const char* InputString_DelimeterSelection)
+char* GetDelimeterFromString(const char* InputString_DelimeterSelection)
 {
     if(strstr(InputString_DelimeterSelection,"//"))
     {
@@ -60,15 +60,15 @@ char* DelimeterFinal(const char* InputString_DelimeterSelection)
 int add(const char* InputStringNumber) {
     int sum = ZERO;
     char* token;
-        char* input_copy = strdup(InputStringNumber); // Make a modifiable 
-        char* DelimitersWithString = DelimeterFinal(InputStringNumber);
-        token = strtok(input_copy, DelimitersWithString);
+    char* input_copy = strdup(InputStringNumber); // Make a modifiable 
+    char* F_Delimiters = GetDelimeterFromString(InputStringNumber);
+        token = strtok(input_copy, F_Delimiters);
         IsStringEmpty(InputStringNumber);
         CheckIfNegative(input_copy);
         // Iterate through all tokens and sum the numbers
     while (token != NULL) {
         sum += NumberIsGreaterThousand(atoi(token));
-        token = strtok(NULL, DelimitersWithString);
+        token = strtok(NULL, F_Delimiters);
     }
     return sum;
 
